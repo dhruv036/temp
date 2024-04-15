@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.learn.CourseListItemVM" />
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_course_list"
+            android:layout_width="@dimen/course_item_width"
+            android:layout_height="@dimen/course_item_height"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/xxdp_16dp_padding"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="16dp"
+            app:cardPreventCornerOverlap="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="@{()-> data.onCourseClicked()}">
+
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    loadReferenceGlide="@{data.story.thumbReference}"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.609"
+                    app:srcCompat="@drawable/temp_home_learn_tile_2" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/picto_default_font"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@{data.story.courseFlow.course.title}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/course_item_list_title_text_size"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="THE HUNT FOR GRANDPA'S HIDDEN TREASURE" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/round_dummy_course_lessons_numers"
+                    android:fontFamily="@font/picto_default_font"
+                    android:padding="4dp"
+                    android:text="@{data.story.completedLessons +`/`+ data.story.totalLessons}"
+                    android:textColor="@android:color/white"
+                    android:visibility="@{data.story.enrolled? View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="[8/10]" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/round_course_item_list_border"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@{data.story.courseSubTitle}"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8"
+                    tools:text="with the basics of coding" />
+
+                <!--                <View
+                    android:id="@+id/view6"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="#A0000000"
+                    android:visibility="@{data.story.status.equals(`WIP`) ? View.VISIBLE:View.GONE }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="gone" />-->
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_couse_coming_soon_bg"
+                    android:padding="12dp"
+                    android:text="Coming Soon"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:visibility="@{data.story.status.equals(`WIP`)  ? View.VISIBLE:View.GONE }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.75"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</layout>

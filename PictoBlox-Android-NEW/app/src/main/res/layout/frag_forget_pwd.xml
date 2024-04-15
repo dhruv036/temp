@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.firebase.login.ForgotPasswordVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:background="@drawable/bg_login_m2">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_login_background"
+            android:padding="@dimen/login_box_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/textView54"
+                style="@style/style_tv_login_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/lets_reset_password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText11"
+                style="@style/style_et_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:text="@={data.username}"
+                android:hint="@string/username"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/textView54"
+                app:layout_constraintStart_toStartOf="@+id/textView54"
+                app:layout_constraintTop_toBottomOf="@+id/textView54" />
+
+            <EditText
+                android:id="@+id/editText13"
+                style="@style/style_et_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:text="@={data.email}"
+                android:hint="@string/email_guardian_email"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="@+id/textView54"
+                app:layout_constraintStart_toStartOf="@+id/textView54"
+                app:layout_constraintTop_toBottomOf="@+id/textView56" />
+
+            <TextView
+                android:id="@+id/textView56"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/or"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="@+id/editText11"
+                app:layout_constraintStart_toStartOf="@+id/editText11"
+                app:layout_constraintTop_toBottomOf="@+id/editText11" />
+
+            <TextView
+                android:id="@+id/textView57"
+                style="@style/style_tv_login_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:onClick="@{()-> data.onSubmitClicked()}"
+                android:layout_marginBottom="24dp"
+                android:text="@string/send_password_reset_link"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText13" />
+
+            <ProgressBar
+                android:id="@+id/progressBar12"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:visibility="@{data.showProgress? View.VISIBLE : View.GONE}"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView57"
+                app:layout_constraintStart_toEndOf="@+id/textView57"
+                app:layout_constraintTop_toTopOf="@+id/textView57" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

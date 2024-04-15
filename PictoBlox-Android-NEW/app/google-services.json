@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "790252421845",
+    "firebase_url": "https://pictobloxdev.firebaseio.com",
+    "project_id": "pictobloxdev",
+    "storage_bucket": "pictobloxdev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790252421845:android:e45a2f62773bc2b2d5985c",
+        "android_client_info": {
+          "package_name": "io.stempedia.pictoblox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790252421845-tm90pot3ic1vtk18eu5ic1tblgi9lji1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.stempedia.pictoblox",
+            "certificate_hash": "652ebf03a2cfec52de1816db538deece9d973b5a"
+          }
+        },
+        {
+          "client_id": "790252421845-e9gq9tkm7sqvhgs01plsbdgud0dtfthb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlVWMZHGa72zlbKUalkoFxd9eYu6e9cBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790252421845-e9gq9tkm7sqvhgs01plsbdgud0dtfthb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "790252421845-8cvu44umdgbbmhpajjqp11r391mpcob4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.AgiloResearch.PictoBlox"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790252421845:android:95a057b03ac39d51d5985c",
+        "android_client_info": {
+          "package_name": "io.stempedia.pictoblox.alpha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790252421845-e9gq9tkm7sqvhgs01plsbdgud0dtfthb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlVWMZHGa72zlbKUalkoFxd9eYu6e9cBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790252421845-e9gq9tkm7sqvhgs01plsbdgud0dtfthb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "790252421845-8cvu44umdgbbmhpajjqp11r391mpcob4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.AgiloResearch.PictoBlox"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

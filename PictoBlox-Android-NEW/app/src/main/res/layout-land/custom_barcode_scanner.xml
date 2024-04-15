@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.journeyapps.barcodescanner.BarcodeView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:zxing_viewfinder_laser_visibility="false"
+        android:id="@+id/zxing_barcode_surface"
+        android:requiresFadingEdge="horizontal"
+        app:zxing_framing_rect_width="229dp"
+        app:zxing_framing_rect_height="228.7dp"
+        />
+
+    <com.journeyapps.barcodescanner.ViewfinderView
+        android:id="@+id/zxing_viewfinder_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:zxing_viewfinder_mask="#50000000"
+        app:zxing_possible_result_points="@color/zxing_transparent"
+        app:zxing_viewfinder_laser_visibility="false" />
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="changeCamera"
+            android:src="@drawable/cam" />
+        <TextView
+            android:id="@+id/zxing_msg"
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@color/zxing_transparent"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="@color/zxing_status_text"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="scanLocalImage"
+            android:src="@drawable/gallery1"
+            />
+    </LinearLayout>
+</merge>

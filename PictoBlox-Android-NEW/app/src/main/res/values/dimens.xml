@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="home_card_width">240dp</dimen>
+    <dimen name="home_card_height">197dp</dimen>
+    <dimen name="help_card_image_width">400dp</dimen>
+    <dimen name="login_text_size">14sp</dimen>
+    <dimen name="login_et_text_size">13sp</dimen>
+    <dimen name="login_sub_title_text_size">20sp</dimen>
+    <dimen name="login_box_padding">16dp</dimen>
+    <dimen name="login_internal_margin_2">24dp</dimen>
+    <dimen name="login_internal_margin_1">16dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="toolbar_height">42dp</dimen>
+    <dimen name="icon_24_sp">24dp</dimen>
+    <dimen name="pictoblox_logo_h">17dp</dimen>
+    <dimen name="pictoblox_logo_w">85dp</dimen>
+    <dimen name="fab_custom_size">40dp</dimen>
+    <dimen name="course_list_fab_spacing">8dp</dimen>
+    <dimen name="project_list_row_size">145dp</dimen>
+    <dimen name="course_list_alvin_padding">28dp</dimen>
+
+    <dimen name="course_item_width">196dp</dimen>
+    <dimen name="course_item_height">230dp</dimen>
+    <dimen name="course_item_list_title_text_size">14sp</dimen>
+
+    <dimen name="course_detail_title_size">24sp</dimen>
+    <dimen name="course_detail_sub_title_size">18sp</dimen>
+    <dimen name="course_detail_content_text_size">14sp</dimen>
+    <dimen name="course_detail_bullet_text_size">16sp</dimen>
+
+    <dimen name="lesson_list_title_text_size">18sp</dimen>
+    <dimen name="lesson_list_row_item_bg_size">68dp</dimen>
+    <dimen name="lesson_list_row_item_index_size">42dp</dimen>
+    <dimen name="lesson_list_row_item_tick_size">28dp</dimen>
+    <dimen name="lesson_list_action_buttons_size">32dp</dimen>
+    <dimen name="lesson_list_start_padding_start">22dp</dimen>
+    <dimen name="lesson_list_start_padding_end">16dp</dimen>
+    <dimen name="xxdp_16dp_padding">16dp</dimen>
+    <dimen name="lesson_list_star_size">18dp</dimen>
+    <dimen name="quiz_title_text">18sp</dimen>
+    <dimen name="quiz_option_text_size">14sp</dimen>
+    <dimen name="profile_options_icon_size">32dp</dimen>
+    <dimen name="profile_options_text_size">18sp</dimen>
+    <dimen name="profile_option_side_margin">32dp</dimen>
+    <dimen name="profile_option_up_margin">12dp</dimen>
+    <dimen name="profile_user_detail_font_size">14sp</dimen>
+    <dimen name="profile_image_size">64dp</dimen>
+    <dimen name="dimen_student_teacher_button_margin">12dp</dimen>
+
+
+    <integer name="project_list_search_ems">12</integer>
+
+</resources>

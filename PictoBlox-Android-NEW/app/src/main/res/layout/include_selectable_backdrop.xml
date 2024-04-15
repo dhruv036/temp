@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.web.PictoBloxWebViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:onClick="@{()-> data.onBackdropClicked()}"
+        android:layout_height="?attr/actionBarSize">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/white"
+                android:visibility="@{data.isBackDropSelected ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/iv_sprite_thumb"
+                app:layout_constraintStart_toStartOf="@+id/iv_sprite_thumb"
+                app:layout_constraintTop_toBottomOf="@+id/v_sprit_top" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_sprite_thumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:src="@drawable/ic_add_backdrop_v1"
+                app:imageBitmap="@{data.backdropBitmap}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/v_sprit_left"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:tint="@color/colorPrimary" />
+
+            <View
+                android:id="@+id/v_sprit_left"
+                android:layout_width="6dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_sprite_v_left"
+                android:visibility="@{data.isBackDropSelected ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_sprite_thumb" />
+
+            <View
+                android:id="@+id/v_sprit_right"
+                android:layout_width="6dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_sprite_v_right"
+                android:visibility="@{data.isBackDropSelected ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_sprite_thumb"
+                app:layout_constraintTop_toTopOf="@+id/iv_sprite_thumb" />
+
+            <View
+                android:id="@+id/v_sprit_top"
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:background="@drawable/round_sprite_v_top"
+                android:visibility="@{data.isBackDropSelected ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toTopOf="@+id/iv_sprite_thumb"
+                app:layout_constraintEnd_toStartOf="@+id/v_sprit_right"
+                app:layout_constraintStart_toEndOf="@+id/v_sprit_left" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</layout>

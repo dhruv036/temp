@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.web.PictoBloxWebViewModel" />
+
+        <import type="io.stempedia.pictoblox.connectivity.NavigationModalStack" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/wb_pictoblox_root_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:keepScreenOn="true"
+            tools:context=".web.PictoBloxWebActivity">
+
+            <FrameLayout
+                android:id="@+id/wb_pictoblox_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tb_pictoblox"
+                app:layout_constraintVertical_bias="0.405">
+
+            </FrameLayout>
+
+            <!--  <WebView
+                  android:id="@+id/wb_pictoblox"
+                  android:layout_width="0dp"
+                  android:layout_height="0dp"
+                  android:visibility="gone"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintHorizontal_bias="1.0"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/tb_pictoblox"
+                  app:layout_constraintVertical_bias="0.405" />
+
+      -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tb_pictoblox"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/ic_back3"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+
+                    <!--<androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_add_backdrop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            tools:visibility="visible"
+                            android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                            android:clickable="true"
+                            android:background="@drawable/ripple_toolbar_item"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_add_background3"/>-->
+
+                    <include
+                        android:id="@+id/iv_add_backdrop"
+                        layout="@layout/include_selectable_backdrop"
+                        app:data="@{data}" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_add_sprite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="start"
+                        android:layout_toEndOf="@+id/v_separator"
+                        android:background="@drawable/ripple_toolbar_item"
+                        android:clickable="true"
+                        android:onClick="@{()->data.onAddSpriteClicked()}"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_add_sprite4"
+                        android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                        tools:visibility="visible" />
+
+                    <View
+                        android:id="@+id/v_separator"
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_toEndOf="@+id/iv_add_backdrop"
+                        android:background="#30000000"
+                        android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                        tools:visibility="visible" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_sprite_list"
+                        android:layout_width="172dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@+id/iv_add_sprite"
+                        android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/tv_modal_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:maxLines="1"
+                        android:text="@{data.modal.title}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.GONE:View.VISIBLE}"
+                        tools:text="Choose a Sprite"
+                        tools:visibility="gone" />
+                </RelativeLayout>
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="start"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:src="@drawable/ic_pictoblox_logo"
+                    android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:onClick="@{()->data.onHelpClicked()}"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_help3"
+                    android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_connect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:onClick="@{()->data.onConnectClicked()}"
+                    android:padding="8dp"
+                    android:src="@{data.connectIcon}"
+                    android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                    tools:src="@drawable/ic_connect4"
+                    tools:visibility="visible" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_board"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:onClick="@{()->data.onBoardClicked()}"
+                    android:padding="8dp"
+                    android:src="@{data.boardIcon}"
+                    android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                    tools:src="@drawable/ic_dummy_board_24px"
+                    tools:visibility="visible" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:onClick="@{()->data.onSaveClicked()}"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_dummy_save_24px"
+                    android:visibility="@{data.modal == NavigationModalStack.CODING_BLOCK_MODAL ? View.VISIBLE:View.GONE}"
+                    tools:visibility="visible" />
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <ProgressBar
+                android:id="@+id/pb_pictoblox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="@{data.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ripple_workspace_icon_bg"
+                android:padding="8dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                app:srcCompat="@drawable/ic_undo" />
+
+            <ImageView
+                android:id="@+id/iv_switch_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/ripple_workspace_icon_bg"
+                android:elevation="2dp"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_icon_zoomout"
+                tools:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_start_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ripple_workspace_icon_bg"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_stop_flag"
+                app:layout_constraintEnd_toStartOf="@+id/iv_stop_flag"
+                app:layout_constraintTop_toTopOf="@+id/iv_stop_flag"
+                app:srcCompat="@drawable/ic_flag"
+                tools:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_stop_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ripple_workspace_icon_bg"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_switch_layout"
+                app:layout_constraintEnd_toStartOf="@+id/iv_switch_layout"
+                app:layout_constraintTop_toTopOf="@+id/iv_switch_layout"
+                app:srcCompat="@drawable/ic_stop"
+                tools:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/ripple_workspace_icon_bg"
+                android:padding="8dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tb_pictoblox"
+                app:srcCompat="@drawable/ic_redo" />
+
+            <TextView
+                android:id="@+id/tv_loading_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@{data.loadingMessage}"
+                android:textColor="@color/general_grey_text"
+                android:textSize="12sp"
+                android:visibility="@{data.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="@+id/pb_pictoblox"
+                app:layout_constraintStart_toStartOf="@+id/pb_pictoblox"
+                app:layout_constraintTop_toBottomOf="@+id/pb_pictoblox"
+                tools:text="@string/loading_screen_help_1" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

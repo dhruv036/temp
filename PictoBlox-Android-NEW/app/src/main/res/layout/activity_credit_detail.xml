@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.profile.CreditDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.ProfileActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_credit"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back2"
+            app:title="">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:background="@drawable/ripple_toolbar_item"
+                android:onClick="@{()->data.outputHelpClicked.onNext(``)}"
+                android:padding="8dp"
+                android:src="@drawable/ic_help3"
+                android:visibility="visible" />
+
+            <TextView
+                style="@style/style_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/credits" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/imageView42"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_credit"
+            app:srcCompat="@drawable/course_list_bg" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_login_background"
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_credit">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <ImageView
+                android:id="@+id/imageView43"
+                imageBitmap="@{data.profileIcon}"
+                android:layout_width="@dimen/profile_image_size"
+                android:layout_height="@dimen/profile_image_size"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@drawable/dummy_profile_thumb" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/round_profile_detail"
+                android:orientation="vertical"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView43">
+
+                <TextView
+                    android:id="@+id/textView66"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:maxEms="10"
+                    android:singleLine="true"
+                    android:text="@{data.username}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/profile_user_detail_font_size"
+                    android:textStyle="bold"
+                    tools:text="Usernamemmmmmmmmmmmm" />
+
+                <TextView
+                    android:id="@+id/textView68"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="middle"
+                    android:gravity="center_horizontal"
+                    android:maxEms="10"
+                    android:singleLine="true"
+                    android:text="@{data.email}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/profile_user_detail_font_size"
+                    tools:text="ankitgiri@thestempedia.com" />
+
+                <TextView
+                    android:id="@+id/textView69"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@{data.dobOrAge}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/profile_user_detail_font_size"
+                    tools:text="DOB" />
+
+                <TextView
+                    android:id="@+id/textView70"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@{data.country}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/profile_user_detail_font_size"
+                    tools:text="Country" />
+            </LinearLayout>
+
+
+            <ProgressBar
+                android:id="@+id/progressBar13"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginBottom="48dp"
+                android:visibility="@{data.isLoadingData? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView77"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="64dp"
+                android:text="@{data.error}"
+                android:visibility="@{data.isErrorWhileLoadingData? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/textView78"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Some Error occured"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView78"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="56dp"
+                android:background="@drawable/round_profile_reload"
+                android:onClick="@{()->data.inputRetryClicked.onNext(``)}"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="4dp"
+                android:text="@string/reload"
+                android:textColor="@android:color/white"
+                android:visibility="@{data.isErrorWhileLoadingData? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView77"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/textView77"
+                app:layout_constraintTop_toBottomOf="@+id/textView77"
+                tools:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/textView102"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/credits"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view13"
+                android:layout_width="120dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/textView102" />
+
+
+            <View
+                android:id="@+id/view14"
+                android:layout_width="120dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/textView103" />
+
+            <TextView
+                android:id="@+id/textView103"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/redeem"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/textView105"
+                app:layout_constraintVertical_bias="0.26999998" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName5"
+                style="@style/style_et_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="@string/enter_code_here"
+                android:imeOptions="flagNoExtractUi|actionDone"
+                android:inputType="textNoSuggestions"
+                android:maxLength="8"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@={data.couponCode}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/view14" />
+
+            <ProgressBar
+                android:id="@+id/progressBar11"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{!data.isRedeemCouponCallActive? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/textView104"
+                app:layout_constraintEnd_toEndOf="@+id/textView104"
+                app:layout_constraintStart_toStartOf="@+id/textView104"
+                app:layout_constraintTop_toTopOf="@+id/textView104" />
+
+            <TextView
+                android:id="@+id/textView104"
+                style="@style/style_tv_login_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{()->data.inputGoClicked.onNext(``)}"
+                android:text="@string/go"
+                android:visibility="@{!data.isLoadingData &amp;&amp; !data.isErrorWhileLoadingData? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView105"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{@string/available_credits +data.totalScore}"
+                tools:text="Available credits : 100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/view13" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{!data.isLoadingData &amp;&amp; !data.isErrorWhileLoadingData? View.VISIBLE:View.GONE}"
+                app:constraint_referenced_ids="linearLayout,progressBar11, imageView43,view13,textView103,textView105,editTextTextPersonName5,textView102,view14"
+                tools:visibility="visible" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

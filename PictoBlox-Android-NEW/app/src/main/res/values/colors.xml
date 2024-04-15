@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#531e73</color><!--This is hardcoded in search span-->
+    <color name="colorLight">#824aa2</color>
+    <color name="colorPrimaryDark">#260047</color>
+    <color name="colorAccent">#ff9b00</color>
+    <color name="colorSecondaryLight">#ffcc48</color>
+    <color name="colorSecondaryDark">#c66c00    </color>
+    <color name="colorPrimarySemiTransparent">#CC531e73</color><!--This is hardcoded in search span-->
+
+    <color name="black">#000000</color>
+
+    <color name="general_grey_bg">#DCDBDC</color>
+    <color name="general_grey_bg_st">#88DCDBDC</color>
+    <color name="general_light_grey_bg">#EFEFEF</color>
+    <color name="general_grey_text">#A9A9A9</color>
+    <color name="general_red">#A9A9A9</color>
+    <color name="general_brown_for_courses">#723600</color>
+    <color name="general_dark_brown_for_courses">#592701</color>
+    <color name="general_red_for_courses">#E0003C</color>
+
+
+    <color name="device_search_no_name">#aaa</color>
+    <color name="device_search_name">#666</color>
+    <color name="device_search_name_changed">#F47920</color>
+
+    <color name="file_select_indicator_color">#aaff9b00</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent">#A0000000</color>
+
+    <color name="quiz_yellow">#ffff00</color>
+    <color name="quiz_green">#41a80b</color>
+
+    <color name="hyperlink_color">#0000EE</color>
+
+    <color name="login_edit_text">#575e75</color>
+    <color name="login_edit_outline">#8a8f95</color>
+    <color name="login_edit_outline2">#C0C1C0</color>
+
+
+    <color name="getting_started_slice_1_bg">#7299ff</color>
+    <color name="getting_started_slice_2_bg">#ffc311</color>
+    <color name="getting_started_slice_3_bg">#9e005d</color>
+    <color name="getting_started_slice_4_bg">#b1d219</color>
+    <color name="getting_started_slice_5_bg">#038e81</color>
+    <color name="getting_started_slice_6_bg">#ff8b00</color>
+    <color name="getting_started_slice_7_bg">#ff3e4e</color>
+
+    <color name="getting_started_indicator_normal">#48000000</color>
+    <color name="getting_started_indicator_selected">#96000000</color>
+
+
+
+</resources>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.learn.CourseListVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".learn.CourseListActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_project_list"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back2"
+            app:title="">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:background="@drawable/ripple_toolbar_item"
+                android:onClick="@{()-> data.onHelpClicked()}"
+                android:padding="8dp"
+                android:src="@drawable/ic_help3"
+                android:visibility="visible" />
+
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:onClick="@{()-> data.onAccountClicked()}"
+                    android:padding="8dp"
+                    android:visibility="visible"
+                    app:imageBitmap="@{data.profileIcon}"
+                    tools:src="@drawable/ic_account2" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_profile_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:src="@drawable/ic_profile_incomplete_indicator"
+                    android:visibility="@{data.showProfileIncompleteError? View.VISIBLE: View.GONE}" />
+            </FrameLayout>
+
+
+            <TextView
+                style="@style/style_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Learn" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_project_list"
+            app:srcCompat="@drawable/course_list_bg" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_course_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:itemCount="4"
+            tools:listitem="@layout/row_course_list"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView18"
+            app:layout_constraintTop_toTopOf="@+id/imageView18"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="@dimen/course_list_alvin_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView11"
+            app:srcCompat="@drawable/course_alvin" />
+
+        <ProgressBar
+            android:id="@+id/progressBar4"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{data.isRetrievingData ? View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView11"
+            app:layout_constraintStart_toEndOf="@+id/imageView18"
+            app:layout_constraintTop_toBottomOf="@+id/tb_project_list" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

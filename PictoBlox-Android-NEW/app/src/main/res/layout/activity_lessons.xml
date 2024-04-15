@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.learn.lessons.LessonsListVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/course_detail_bg"
+        tools:context=".learn.lessons.LessonsListActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_lessons"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back2"
+            app:title="" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_lessons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lesson_list_bg"
+            android:padding="@dimen/xxdp_16dp_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            tools:itemCount="2"
+            tools:listitem="@layout/row_lessons" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/course_title_bg_small"
+            android:fontFamily="@font/picto_default_font"
+            android:gravity="center"
+            android:maxWidth="96dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@{data.title}"
+            android:textColor="@color/general_brown_for_courses"
+            android:textSize="@dimen/lesson_list_title_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/rv_lessons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_lessons"
+            tools:text="Hunt For Granma's Hidden Tresasure" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/round_lesson_list_icons_bg"
+            android:elevation="6dp"
+            android:onClick="@{()-> data.onHomeClicked()}"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_lesson_list_home" />
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/round_lesson_list_icons_bg"
+            android:elevation="6dp"
+            android:onClick="@{()-> data.onMuteClicked()}"
+            android:padding="8dp"
+            android:src="@{data.isMuted ? @drawable/ic_lesson_list_volume_mute : @drawable/ic_lesson_list_volume}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@drawable/ic_lesson_list_volume_mute" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_lessons">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/round_lesson_list_rating_bg"
+                android:fontFamily="@font/picto_default_font"
+                android:gravity="center"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/lesson_list_start_padding_start"
+                android:paddingTop="4dp"
+                android:textSize="@dimen/lesson_list_title_text_size"
+                android:paddingEnd="@dimen/lesson_list_start_padding_end"
+                android:text="@{data.totalScore}"
+                android:textColor="@android:color/white"
+                tools:text="100" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_lesson_total_rating_stars" />
+
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

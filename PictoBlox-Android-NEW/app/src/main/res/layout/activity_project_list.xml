@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.projectListing.ProjectListActivityVM" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".projectListing.ProjectListActivity">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_project_list"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back2">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:background="@drawable/ripple_toolbar_item"
+                android:onClick="@{()-> data.onHelpClicked()}"
+                android:padding="8dp"
+                android:src="@drawable/ic_help3"
+                android:visibility="@{data.isSelectionEnabled ? View.GONE:View.VISIBLE}"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:background="@drawable/ripple_toolbar_item"
+                android:onClick="@{()-> data.onSettingsClicked()}"
+                android:padding="8dp"
+                android:src="@drawable/ic_settings"
+                android:visibility="@{data.isSelectionEnabled ? View.GONE:View.VISIBLE}"
+                tools:visibility="visible" />
+
+<!--            android:background="@drawable/ripple_toolbar_item"-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:onClick="@{()-> data.onDeleteClicked()}"
+                android:paddingTop="12dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="8dp"
+                android:background="@{data.isDeleteClicked ? @drawable/back_bg : @drawable/ripple_toolbar_item}"
+                android:src="@{data.isDeleteClicked ? @drawable/baseline_delete_24_purple:@drawable/ic_delete_project}"
+                android:visibility="@{data.isSelectionEnabled ? View.VISIBLE:View.GONE}"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_share"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:onClick="@{()-> data.onShareClicked()}"
+                android:background="@{data.isShareClicked ? @drawable/back_bg : @drawable/ripple_toolbar_item}"
+                android:paddingTop="12dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="8dp"
+                android:src="@{data.isShareClicked ? @drawable/baseline_share_24_purple : @drawable/ic_share_project}"
+                android:visibility="@{data.isSelectionEnabled ? View.VISIBLE:View.GONE}"
+                tools:layout_editor_absoluteX="263dp"
+                tools:visibility="visible" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:visibility="@{data.isSelectionEnabled ? View.GONE:View.VISIBLE}">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:onClick="@{()-> data.onAccountClicked()}"
+                    android:padding="8dp"
+                    android:visibility="visible"
+                    app:imageBitmap="@{data.profileIcon}"
+                    tools:src="@drawable/ic_account2" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_profile_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ripple_toolbar_item"
+                    android:src="@drawable/ic_profile_incomplete_indicator"
+                    android:visibility="@{data.showProfileIncompleteError? View.VISIBLE: View.GONE}" />
+            </FrameLayout>
+
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/iv_export_project"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_gravity="end"-->
+<!--                android:background="@drawable/ripple_toolbar_item"-->
+<!--                android:onClick="@{()-> data.onExportClicked()}"-->
+<!--                android:padding="8dp"-->
+<!--                android:src="@drawable/ic_export"-->
+<!--                android:visibility="@{data.isSelectionEnabled ? View.VISIBLE:View.GONE}"-->
+<!--                tools:visibility="visible" />-->
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/style_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/my_space" />
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/iv_create_link"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_gravity="end"-->
+<!--                android:background="@drawable/ripple_toolbar_item"-->
+<!--                android:onClick="@{()-> data.onCreatePublicLink()}"-->
+<!--                android:padding="8dp"-->
+<!--                android:src="@drawable/ic_create_link"-->
+<!--                android:visibility="@{data.showCreateLinkIcon ? View.VISIBLE:View.GONE}"-->
+<!--                tools:visibility="visible" />-->
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:background="#e8d9ea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_project_list" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:afterTextChanged="@{(s) -> data.afterTextChanged(s)}"
+            android:background="@drawable/round_project_list_seach_bg"
+            android:drawableStart="@drawable/ic_search_project"
+            android:drawablePadding="4dp"
+            android:ems="@integer/project_list_search_ems"
+            android:gravity="center|start"
+            android:hint="@string/search"
+            android:imeOptions="flagNoFullscreen"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:text="@={data.queryText}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/radioButton"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/radioButton" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/ripple_project_list_dir"
+            android:button="@null"
+            android:checked="@{data.selectedTab == 0}"
+            android:ems="6"
+            android:gravity="center"
+            android:maxLines="1"
+            android:onClick="@{()-> data.checkBoxClicked(0)}"
+            android:text="@string/recent"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:visibility="@{(data.selectedTab != 0 &amp;&amp; data.isSelectionEnabled) ?View.GONE:View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/view2"
+            app:layout_constraintStart_toEndOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="@+id/view2" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/ripple_project_list_dir"
+            android:button="@null"
+            android:checked="@{data.selectedTab == 1}"
+            android:ems="6"
+            android:gravity="center"
+            android:maxLines="1"
+            android:onClick="@{()-> data.checkBoxClicked(1)}"
+            android:text="@string/local"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:visibility="@{(data.selectedTab != 1 &amp;&amp; data.isSelectionEnabled) ?View.GONE:View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/radioButton"
+            app:layout_constraintStart_toEndOf="@+id/radioButton"
+            app:layout_constraintTop_toTopOf="@+id/radioButton"
+            tools:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/ripple_project_list_dir"
+            android:button="@null"
+            android:checked="@{data.selectedTab == 2}"
+            android:ems="5"
+            android:gravity="center"
+            android:maxLines="1"
+            android:onClick="@{()-> data.checkBoxClicked(2)}"
+            android:text="@string/project_list_cloud"
+            android:textColor="@color/color_project_list_radio_text"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/radioButton2"
+            app:layout_constraintStart_toEndOf="@+id/radioButton2"
+            app:layout_constraintTop_toTopOf="@+id/radioButton2" />
+
+        <ImageView
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ripple_toolbar_item"
+            android:onClick="@{()-> data.onFolderIconClicked()}"
+            android:visibility="@{data.isSelectionEnabled ? View.GONE:View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_project_list"
+            app:srcCompat="@drawable/ic_icon_folder" />
+
+        <fragment
+            android:id="@+id/frag_recent"
+            android:name="io.stempedia.pictoblox.projectListing.RecentProjectFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:tag="frag_recent_tag"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <fragment
+            android:id="@+id/frag_local"
+            android:tag="frag_local_tag"
+            android:name="io.stempedia.pictoblox.projectListing.LocalProjectFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/scan_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabCustomSize="@dimen/fab_custom_size"
+            android:layout_marginBottom="@dimen/course_list_fab_spacing"
+            android:backgroundTint="@color/colorPrimary"
+            app:backgroundTint="@color/colorPrimary"
+            android:onClick="@{()->data.openProject()}"
+            android:src="@drawable/baseline_qr_code_scanner_24"
+            app:layout_constraintBottom_toTopOf="@+id/floatingActionButton2"
+            app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
+            app:layout_constraintStart_toStartOf="@+id/floatingActionButton2"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:clickable="true"
+            android:onClick="@{()-> data.onNewProjectFABClicked()}"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabCustomSize="@dimen/fab_custom_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_code_new" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/course_list_fab_spacing"
+            android:clickable="true"
+            android:onClick="@{()-> data.opOpenCachedProjectClicked()}"
+            android:padding="8dp"
+            android:visibility="@{data.isCachedVersionAvailable? View.VISIBLE:View.GONE}"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabCustomSize="@dimen/fab_custom_size"
+            app:layout_constraintBottom_toTopOf="@+id/scan_project"
+            app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
+            app:layout_constraintStart_toStartOf="@+id/floatingActionButton2"
+            app:srcCompat="@drawable/ic_code_resume" />
+
+        <ImageView
+
+            android:id="@+id/imageView40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ripple_toolbar_item"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/view2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView41"
+            app:layout_constraintTop_toBottomOf="@+id/tb_project_list"
+            app:srcCompat="@drawable/ic_export" />
+
+        <ImageView
+            android:id="@+id/imageView41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ripple_toolbar_item"
+            android:onClick="@{()-> data.showComingSoon()}"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/view2"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/tb_project_list"
+            app:srcCompat="@drawable/ic_import" />
+
+        <include
+            android:id="@+id/include_loading_external_file"
+            layout="@layout/include_loading_external_file"
+            android:visibility="@{data.showExternalFileLoading? View.VISIBLE: View.GONE}"
+            app:data="@{data}"
+            tools:visibility="gone" />
+
+
+        <include
+            android:id="@+id/shareList"
+            layout="@layout/share_type_dialog"
+            android:layout_width="match_parent"
+            android:visibility="@{data.showShareList? View.VISIBLE: View.GONE}"
+            app:data="@{data}"
+            app:layout_constraintTop_toBottomOf="@id/tb_project_list"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/iv_share"
+            tools:visibility="visible"
+            android:layout_marginRight="50dp"
+            android:onClick="@{()->data.checkClicked()}"
+            android:elevation="5dp"
+            android:layout_height="0dp"
+            tools:ignore="NotSibling" />
+
+        <include
+            android:id="@+id/include_create_link_file"
+            layout="@layout/include_upload_file_create_link"
+            android:visibility="@{data.showCreateLinkView? View.VISIBLE: View.GONE}"
+            app:data="@{data.linkCreationViewModel}"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

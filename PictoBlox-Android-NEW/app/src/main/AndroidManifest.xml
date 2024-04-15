@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="false"
+        tools:node="replace" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:name=".PictoBloxApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="LockedOrientationActivity">
+        <activity
+            android:name=".AboutPictoBloxActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar"
+            android:exported="false" />
+        <activity
+            android:name=".QR.CustomScanner"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar" />
+        <activity
+            android:name=".examples.ExampleDescriptionActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".profile.CreditDetailActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar" />
+
+        <service
+            android:name=".experimental.SyncService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".util.RegisterService"
+            android:exported="false"
+            android:process=":restartservice" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="io.stempedia.pictoblox"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name=".settings.ShareForMIUIActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PurpleToolbar" />
+        <activity
+            android:name=".examples.ExamplesActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar" />
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar" />
+        <activity
+            android:name=".GettingStartedActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".firebase.login.LoginActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".quiz.QuizActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar" />
+        <activity
+            android:name=".help.HelpActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar" />
+        <activity
+            android:name=".learn.CourseContentRetrieverActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar" />
+        <activity
+            android:name=".learn.lessons.LessonTitleActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/CourseBrownTop" />
+        <activity
+            android:name=".learn.lessons.LessonIntroActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/CourseIntroConclusion" />
+        <activity
+            android:name=".learn.lessons.LessonOverviewActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/CourseIntroConclusion" />
+        <activity
+            android:name=".learn.courseIntroConclusion.CourseIntroActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/CourseIntroConclusion" />
+        <activity android:name=".learn.IntroOutroActivity" />
+        <activity
+            android:name=".learn.lessons.LessonsListActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/CourseBrownTop" />
+        <activity
+            android:name=".learn.CourseDetailActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/CourseBrownTop" />
+        <activity
+            android:name=".learn.CourseListActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/CourseListTheme" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PurpleToolbar" />
+        <activity
+            android:name=".FilesActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".home.Home2Activity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/HomeWindowTheme" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".projectListing.ProjectListActivity"
+            android:exported="true"
+            android:label="@string/my_space"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/ProjectListTheme"
+            android:windowSoftInputMode="stateVisible|adjustNothing">
+
+            <!--
+     Capture content by MIME type, which is how Gmail broadcasts
+     attachment open requests.  pathPattern and file extensions
+     are ignored, so the MIME type *MUST* be explicit, otherwise
+     we will match absolutely every file opened.
+            -->
+            <!-- <intent-filter -->
+            <!-- android:priority="50" > -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+
+
+            <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+
+
+            <!-- <data android:scheme="content" /> -->
+            <!-- <data android:scheme="file" /> -->
+            <!-- <data android:mimeType="application/vnd.sb3" /> -->
+            <!-- </intent-filter> -->
+
+
+            <!-- &lt;!&ndash; -->
+            <!-- Capture file open requests (pathPattern is honoured) where no -->
+            <!-- MIME type is provided in the Intent.  An Intent with a null -->
+            <!-- MIME type will never be matched by a filter with a set MIME -->
+            <!-- type, so we need a second intent-filter if we wish to also -->
+            <!-- match files with this extension and a non-null MIME type -->
+            <!-- (even if it is non-null but zero length). -->
+            <!-- &ndash;&gt; -->
+            <!-- <intent-filter -->
+            <!-- android:priority="50" > -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+
+
+            <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+
+
+            <!-- <data android:scheme="content" /> -->
+            <!-- <data android:scheme="file" /> -->
+            <!-- <data android:host="*" /> -->
+
+
+            <!-- &lt;!&ndash; -->
+            <!-- Work around Android's ugly primitive PatternMatcher -->
+            <!-- implementation that can't cope with finding a . early in -->
+            <!-- the path unless it's explicitly matched. -->
+            <!-- &ndash;&gt; -->
+            <!-- <data android:pathPattern=".*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.sb3" /> -->
+            <!-- </intent-filter> -->
+
+
+            <!-- &lt;!&ndash; -->
+            <!-- Capture file open requests (pathPattern is honoured) where a -->
+            <!-- (possibly blank) MIME type is provided in the Intent.  This -->
+            <!-- filter may only be necessary for supporting ES File Explorer, -->
+            <!-- which has the probably buggy behaviour of using an Intent -->
+            <!-- with a MIME type that is set but zero-length.  It's -->
+            <!-- impossible to match such a type except by using a global -->
+            <!-- wildcard. -->
+            <!-- &ndash;&gt; -->
+            <!-- <intent-filter -->
+            <!-- android:priority="50" > -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+
+
+            <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+
+
+            <!-- <data android:scheme="content" /> -->
+            <!-- <data android:scheme="file" /> -->
+            <!-- <data android:host="*" /> -->
+            <!-- <data android:mimeType="*/*" /> -->
+
+
+            <!-- &lt;!&ndash; -->
+            <!-- Work around Android's ugly primitive PatternMatcher -->
+            <!-- implementation that can't cope with finding a . early in -->
+            <!-- the path unless it's explicitly matched. -->
+            <!-- &ndash;&gt; -->
+            <!-- <data android:pathPattern=".*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.sb3" /> -->
+            <!-- <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.sb3" /> -->
+            <!-- </intent-filter> -->
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.VIEW" />-->
+            <!--                <category android:name="android.intent.category.BROWSABLE" />-->
+            <!--                <category android:name="android.intent.category.DEFAULT" />-->
+
+            <!--                <data android:scheme="content" />-->
+            <!--                <data android:scheme="file" />-->
+            <!--                <data android:scheme="https" />-->
+            <!--                <data android:host="*" />-->
+
+            <!--                &lt;!&ndash; Required for Gmail and Samsung Email App &ndash;&gt;-->
+            <!--                <data android:mimeType="application/octet-stream" />-->
+
+            <!--                &lt;!&ndash; Required for Outlook &ndash;&gt;-->
+            <!--                <data android:mimeType="application/sb3" />-->
+            <!--                <data android:mimeType="application/json" />-->
+            <!--                <data android:mimeType="application/zip" />-->
+            <!--            </intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+
+                <data
+                    android:pathPattern=".*\\.sb3"
+                    android:scheme="file" />
+                <data
+                    android:pathPattern=".*\\.sb3"
+                    android:scheme="content" />
+
+                <data android:mimeType="application/octet-stream" />
+
+                <!-- Required for Outlook -->
+                <data android:mimeType="application/sb3" />
+                <data android:mimeType="application/json" />
+                <data android:mimeType="application/zip" />
+            </intent-filter>
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:host="pictoblox.page.link" />
+            </intent-filter>
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https" />
+                <data android:host="pictoblox.page.link" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".web.PictoBloxWebActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PictobloxWindowTheme"
+            android:windowSoftInputMode="adjustPan" />
+
+        <service
+            android:name=".connectivity.SearchDeviceServiceImpl"
+            android:enabled="true" />
+        <service
+            android:name=".connectivity.CommManagerServiceImpl"
+            android:enabled="true" />
+
+        <activity
+            android:name=".connectivity.DeviceDiscoveryActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="behind"
+            android:theme="@style/DeviceDiscoveryTheme2" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="io.stempedia.pictoblox.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/local_storage_share_folders" />
+        </provider>
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PurpleToolbar" />
+
+        <service
+            android:name=".PictoBloxFirebaseInstanceIdService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

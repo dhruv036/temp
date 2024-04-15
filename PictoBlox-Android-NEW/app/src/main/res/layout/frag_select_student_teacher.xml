@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.firebase.login.LoginActivityViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:background="@drawable/bg_login_m2">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_login_background"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView37"
+                style="@style/style_tv_login_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/you_are_a"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/button12"
+                style="@style/style_tv_login_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_student_teacher_button_margin"
+                android:ems="6"
+                android:onClick="@{()->data.inputAccountTypeSelected.onNext(`TYPE_STUDENT`)}"
+                android:text="@string/student"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/ll_student"
+                app:layout_constraintStart_toStartOf="@+id/ll_student"
+                app:layout_constraintTop_toBottomOf="@+id/ll_student" />
+
+            <TextView
+                android:id="@+id/button13"
+                style="@style/style_tv_login_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_student_teacher_button_margin"
+                android:ems="6"
+                android:onClick="@{()->data.inputAccountTypeSelected.onNext(`TYPE_TEACHER`)}"
+                android:text="@string/teacher"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/ll_teacher"
+                app:layout_constraintStart_toStartOf="@+id/ll_teacher"
+                app:layout_constraintTop_toBottomOf="@+id/ll_teacher" />
+
+            <LinearLayout
+                android:id="@+id/ll_teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/ripple_student_teacher_ic_bg"
+                android:elevation="4dp"
+                android:onClick="@{()->data.inputAccountTypeSelected.onNext(`TYPE_TEACHER`)}"
+                app:layout_constraintBottom_toBottomOf="@+id/ll_student"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ll_student"
+                app:layout_constraintTop_toTopOf="@+id/ll_student">
+
+                <ImageView
+                    android:id="@+id/imageView44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_educator"
+                    tools:layout_height="wrap_content"
+                    tools:layout_width="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_student"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ripple_student_teacher_ic_bg"
+                android:elevation="4dp"
+                android:onClick="@{()->data.inputAccountTypeSelected.onNext(`TYPE_STUDENT`)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ll_teacher"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView37"
+                app:layout_constraintVertical_bias="0.20999998">
+
+                <ImageView
+                    android:id="@+id/imageView45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_student" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

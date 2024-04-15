@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.web.PictoBloxWebViewModelM2" />
+
+        <import type="io.stempedia.pictoblox.connectivity.NavigationModalStack" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/wb_pictoblox_root_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:keepScreenOn="true"
+            tools:context=".web.PictoBloxWebActivity">
+
+            <FrameLayout
+                android:id="@+id/wb_pictoblox_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="gone">
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                android:visibility="@{data.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView93"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/loading_file"
+                android:textColor="@android:color/white"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:visibility="@{data.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="@+id/pb_pictoblox"
+                app:layout_constraintStart_toStartOf="@+id/pb_pictoblox"
+                app:layout_constraintTop_toBottomOf="@+id/pb_pictoblox" />
+
+
+            <ProgressBar
+                android:id="@+id/pb_pictoblox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="@{data.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <!--     <TextView
+                     android:id="@+id/tv_loading_message"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:fontFamily="sans-serif-light"
+                     android:text="@{data.loadingMessage}"
+                     android:textColor="@color/general_grey_text"
+                     android:textSize="12sp"
+                     android:visibility="@{data.isLoading ? View.VISIBLE : View.GONE}"
+                     app:layout_constraintEnd_toEndOf="@+id/pb_pictoblox"
+                     app:layout_constraintStart_toStartOf="@+id/pb_pictoblox"
+                     app:layout_constraintTop_toBottomOf="@+id/pb_pictoblox"
+                     tools:text="@string/loading_screen_help_1" />
+     -->
+
+            <include
+                android:id="@+id/include_save"
+                layout="@layout/frag_save"
+                android:visibility="@{data.showSaveProjectView? View.VISIBLE: View.GONE}"
+                app:data="@{data.saveProjectViewModel}"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/include_popup"
+                layout="@layout/popup_layout"
+                android:visibility="@{data.showPopUp ? View.VISIBLE : View.GONE}"
+                app:data="@{data.popUpViewModel}"
+                tools:visibility="gone"
+                />
+
+
+            <include
+                android:id="@+id/include_ai_model"
+                layout="@layout/include_ai_model_loading"
+                android:visibility="@{data.showAIModelView? View.VISIBLE: View.GONE}"
+                app:data="@{data.aiViewModel}"
+                tools:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/fl_login_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="#99000000"
+                android:onClick="@{()->data.onDismissLoginDialog()}"
+                android:visibility="@{data.showLoginDialog? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/fl_firmware_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

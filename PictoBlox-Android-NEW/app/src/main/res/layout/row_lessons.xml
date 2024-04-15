@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.learn.lessons.LessonItemVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="@{()-> data.onLessonClicked()}">
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/ratingBar"
+            style="@style/CustomRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:numStars="3"
+            android:rating="@{data.lessonRating}"
+            android:stepSize="0.01"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frame_lesson_list"
+            tools:rating="2" />
+
+
+        <FrameLayout
+            android:id="@+id/frame_lesson_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/ic_lesson_item_box"
+                android:fontFamily="@font/picto_default_font"
+                android:scaleType="centerInside"
+                android:src="@{data.lessonResource}"
+                tools:src="@drawable/ic_lesson_index_ul_1"
+                />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:visibility="@{!data.lessonUnlocked &amp;&amp; !data.lessonCompleted? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/textView15"
+                app:layout_constraintStart_toEndOf="@+id/textView15"
+                app:srcCompat="@drawable/ic_lesson_lock" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:visibility="@{data.lessonUnlocked &amp;&amp; data.lessonCompleted? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/textView15"
+                app:layout_constraintStart_toEndOf="@+id/textView15"
+                app:srcCompat="@drawable/ic_lesson_green_tick" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

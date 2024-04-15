@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+            android:id="@+id/menu_save"
+            android:icon="@drawable/ic_dummy_save_24px"
+            android:orderInCategory="0"
+            android:title="@string/save"
+            app:showAsAction="ifRoom"/>
+    <item
+            android:id="@+id/menu_board_selected"
+            android:icon="@drawable/ic_dummy_board_24px"
+            android:orderInCategory="1"
+            android:title="@string/menu_board_sselected"
+            app:showAsAction="ifRoom"/>
+    <item
+            android:id="@+id/menu_connect"
+            android:icon="@drawable/ic_disconnect3"
+            android:orderInCategory="2"
+            android:title="@string/menu_connect"
+            app:showAsAction="ifRoom"/>
+    <item
+            android:id="@+id/menu_help"
+            android:icon="@drawable/ic_help3"
+            android:orderInCategory="3"
+            android:title="@string/menu_help"
+            app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/menu_open_saved_files"
+            android:icon="@drawable/ic_folder"
+            android:orderInCategory="4"
+            android:visible="false"
+            android:title="@string/menu_open"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/menu_open_external_file"
+            android:icon="@drawable/ic_open_external_file"
+            android:title="@string/menu_open_file_from_storage"
+            android:visible="false"
+            android:orderInCategory="5"
+            app:showAsAction="never"/>
+
+    <item
+            android:visible="false"
+            android:id="@+id/menu_open_settings"
+            android:icon="@drawable/ic_open_external_file"
+            android:title="@string/menu_settings"
+            android:orderInCategory="6"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/menu_open_tutorials"
+            android:icon="@drawable/ic_open_external_file"
+            android:title="@string/menu_tutorials"
+            android:visible="false"
+            android:orderInCategory="7"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/menu_open_rate_us"
+            android:icon="@drawable/ic_open_external_file"
+            android:title="@string/menu_rate_us"
+            android:visible="false"
+            android:orderInCategory="8"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/menu_pen_about"
+            android:icon="@drawable/ic_open_external_file"
+            android:title="@string/menu_about_pictoblox"
+            android:visible="false"
+            android:orderInCategory="9"
+            app:showAsAction="never"/>
+
+</menu>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.quiz.OptionVM" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:visibility="@{data.isOptionAvailable? View.VISIBLE:View.GONE}">
+
+        <ImageView
+            android:id="@+id/imageView30"
+            localImagePath="@{data.optionImage}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@{data.imageOptionBackground}"
+            android:clickable="@{data.isOptionSelectable}"
+            android:onClick="@{()->data.onOptionClick()}"
+            android:padding="4dp"
+            android:visibility="@{TextUtils.isEmpty(data.optionImage)? View.GONE:View.VISIBLE}"
+            app:layout_constraintStart_toEndOf="@+id/textView40"
+            app:layout_constraintTop_toTopOf="@+id/textView40"
+            tools:background="@color/quiz_yellow"
+            tools:srcCompat="@drawable/temp_home_learn_tile"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_quiz_option_bg"
+            android:text="@{data.optionImageIndexAlphabets}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/quiz_option_text_size"
+            android:visibility="@{TextUtils.isEmpty(data.optionImage)? View.GONE:View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@{data.textOptionBackground}"
+            android:clickable="@{data.isOptionSelectable}"
+            android:onClick="@{()->data.onOptionClick()}"
+            android:text="@{data.optionText}"
+            android:textColor="@android:color/white"
+            android:visibility="@{TextUtils.isEmpty(data.optionText)? View.GONE:View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/quiz_option_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/round_quiz_option_bg"
+            tools:layout_marginStart="32dp"
+            tools:text="A. Option1"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

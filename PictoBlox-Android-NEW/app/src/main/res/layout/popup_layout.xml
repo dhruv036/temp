@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.web.PopUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{()->data.closeDialog()}"
+        android:background="@color/colorPrimarySemiTransparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="40dp"
+            android:background="@drawable/round_login_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guideline5"
+            app:layout_constraintRight_toRightOf="@id/guideline6"
+            android:onClick="@{()->data.ignoreClick()}"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolb"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:background="@drawable/toolbar_green"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@{data.title}"
+                    android:textColor="@color/WHITE"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:onClick="@{()->data.closeDialog()}"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/close_btn_green" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/popUpImage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                imageBitmap="@{data.img}"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toTopOf="@id/guideline7"
+                app:layout_constraintTop_toBottomOf="@id/toolb" />
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/popUpBody"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--                    app:layout_constraintRight_toRightOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@id/popUpImage"-->
+            <!--                    tools:text="Get ready to learn new cutting edge technologies AR/XR" />-->
+
+
+            <Button
+                android:id="@+id/popUpButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/purple_round_button"
+                android:minHeight="30sp"
+                android:paddingHorizontal="8dp"
+                android:layout_marginBottom="10dp"
+                android:text="@{data.btTitle}"
+                android:onClick="@{()->data.clickPopUpButton()}"
+                tools:text="Have you registered yet?"
+                android:textAllCaps="false"
+                android:textColor="@color/WHITE"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline7" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".84" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".20" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".80" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

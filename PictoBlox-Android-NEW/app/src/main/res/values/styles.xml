@@ -1,0 +1,165 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="HomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="DeviceDiscoveryTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+
+    </style>
+
+    <style name="DeviceDiscoveryTheme2" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/colorPrimarySemiTransparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="ProjectListTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="PictobloxWindowTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="HomeWindowTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="CourseListTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CourseBrownTop" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/general_brown_for_courses</item>
+        <item name="colorPrimaryDark">@color/general_dark_brown_for_courses</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="CourseIntroConclusion" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/general_brown_for_courses</item>
+        <item name="colorPrimaryDark">@color/general_dark_brown_for_courses</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/rb_lessons</item>
+        <item name="android:minHeight">@dimen/lesson_list_star_size</item>
+        <item name="android:maxHeight">@dimen/lesson_list_star_size</item>
+    </style>
+
+
+    <style name="PurpleToolbar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--<style name="button_login_process" parent="Widget.AppCompat.TextView">
+        <item name="android:background">@drawable/round_course_detail_enroll_bg</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:fontFamily">@font/picto_default_font</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textColor">@android:color/white</item>
+
+    </style>-->
+
+    <style name="cpp_signUp" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">18sp</item>
+
+    </style>
+
+
+    <style name="style_tv_login_buttons" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/login_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ripple_button_bg</item>
+
+    </style>
+
+    <style name="style_tv_login_sub_title" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/login_sub_title_text_size</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+    <style name="style_toolbar_title" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="style_et_login" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/login_edit_text</item>
+        <item name="android:textSize">@dimen/login_et_text_size</item>
+        <item name="android:gravity">start</item>
+        <item name="android:background">@drawable/round_login_edit_text</item>
+        <item name="android:ems">13</item>
+    </style>
+
+    <style name="style_incomplete_sign_up" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/animation_on</item>
+        <item name="android:windowExitAnimation">@anim/animation_off</item>
+    </style>
+</resources>
+

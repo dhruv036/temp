@@ -1,0 +1,201 @@
+<resources>
+    <string name="device_discovery_permission_info" translatable="false">Location permission is required to search nearby Bluetooth
+        devices.
+    </string>
+    <string name="okay" translatable="false">Okay</string>
+    <string name="enabling_bluetooth" translatable="false">Enabling Bluetooth</string>
+    <string name="select_device" translatable="false">Select Device</string>
+
+    <string name="device_discovery_type_recently_connected" translatable="false">Recently connected</string>
+    <string name="device_discovery_type_nearby_devices" translatable="false">Nearby devices</string>
+    <string name="search_canceled" translatable="false">Search cancelled</string>
+
+
+    <string name="preference_updated" translatable="false">Preference updated</string>
+
+    <string name="connecting_device" translatable="false">Connecting %1$s</string>
+    <string name="connected_device" translatable="false">Connected %1$s</string>
+    <string name="disconnected_device" translatable="false">Disconnected %1$s</string>
+    <string name="error_device" translatable="false">Error %1$s</string>
+    <string name="project_list_no_recent_item" translatable="false">No recently edited files</string>
+    <string name="project_list_no_item" translatable="false">You have not saved any files yet!</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="save_project_unique_error" translatable="false">Project with this name already exists!</string>
+    <string name="type_project_name" translatable="false">Type project name</string>
+    <string name="empty_project_error" translatable="false">Project name cannot be empty</string>
+    <string name="save_project_title" translatable="false">Save current Project</string>
+    <string name="save" >Save</string>
+
+
+    <string name="wv_cached_open_snack" translatable="false">Opened cached project %1$s</string>
+
+    <string name="project_list_loading_recent_project" translatable="false">Loading projects saved within 3 days</string>
+    <string name="project_list_error_in_listing" translatable="false">Error while fetching list.</string>
+
+    <string name="empty_message" translatable="false"> </string>
+    <string name="project_list_loading_all_project" translatable="false">Loading all saved projects</string>
+    <string name="project_list_no_local_project" translatable="false">You have not saved any projects yet! Start making already :)</string>
+    <string name="project_list_no_recent_project" translatable="false">You have not saved any project in last 3 days.</string>
+    <string name="my_space">My Space</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="argument_dialog_hint" translatable="false">Enter Sprite\'s %1$s</string>
+    <string name="argument_dialog_enter_decimal" translatable="false">Enter decimal input here…</string>
+    <string name="argument_dialog_enter_text" translatable="false">Enter text input here…</string>
+    <string name="title_activity_settings" translatable="false">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header" translatable="false">Messages</string>
+    <string name="sync_header" translatable="false">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title" translatable="false">Your signature</string>
+    <string name="reply_title" translatable="false">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title" translatable="false">Sync email periodically</string>
+    <string name="attachment_title" translatable="false">Download incoming attachments</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
+
+    <string-array name="minor_age_options">
+        <item>5 years old</item>
+        <item>6 years old</item>
+        <item>7 years old</item>
+        <item>8 years old</item>
+        <item>9 years old</item>
+        <item>10 years old</item>
+        <item>11 years old</item>
+        <item>12 years old</item>
+        <item>13 years old</item>
+        <item>14 years old</item>
+        <item>15 years old</item>
+        <item>16 years old</item>
+    </string-array>
+
+
+    <string name="device_discovery_allow" translatable="false">ALLOW</string>
+    <string name="gps_error_check_settings" translatable="false">Initialisation error, Please check your location settings</string>
+    <string name="device_discovery_gps_info" translatable="false">Due to Google\'s policy in Android 10, Bluetooth device search does not work unless GPS is enabled.</string>
+    <string name="general_okay" translatable="false">Okay</string>
+    <string name="device_discovery_init_bt" translatable="false">Initializing Bluetooth</string>
+    <string name="device_discovery_bt_detect_error" translatable="false">Failed to detect Bluetooth. Please check your settings.</string>
+    <string name="device_discovery_enable_bt" translatable="false">Enabling Bluetooth</string>
+    <string name="device_discovery_select_bt" translatable="false">Select Device</string>
+    <string name="device_discovery_acquiring_name" translatable="false"><![CDATA[<Acquiring device Name>]]></string>
+    <string name="profile_options_margin">Achievements</string>
+
+    <string name="verify_email_info_p1" translatable="false">To access all the features and earn free credits in PictoBlox, click the verification button in the email we sent to
+
+    </string>
+
+    <string name="verify_email_info_p2" translatable="false">To know more about the benefits of a verified account, click here./n If you can\'t find the email, please check your promotion/updates/spam folder.</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_req">Sign-in \\nRequired</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="forgot_username">Forgot username</string>
+    <string name="privacy">Terms and privacy policy.</string>
+    <string name="credits">Credits</string>
+    <string name="redeem">Redeem</string>
+    <string name="enter_code_here">Enter code here</string>
+    <string name="go">GO</string>
+    <string name="reload">Reload</string>
+    <string name="error">Error</string>
+    <string name="code_redeemed_sus">Code redeemed successfully</string>
+    <string name="available_credits">"Available credits: "</string>
+    <string name="b_date">B\'date</string>
+    <string name="verify_email_later"><u>I\'ll complete verification later.</u></string>
+    <string name="sign_up_completion_message">Hurray, you got %1$s credits</string>
+    <string name="link_creation_info">You can share this link with anyone having internet. The link will expire after 30 days. Copy the link once created and save it to a location for later use :).</string>
+    <string name="achievements">Achievements</string>
+    <string name="my_courses">My Courses</string>
+    <string name="notifications">Notifications</string>
+    <string name="change_password">Change Password</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="profile">Profile</string>
+    <string name="comming_soon">Coming Soon</string>
+    <string name="try_again">Try again</string>
+    <string name="got_it">Got it</string>
+    <string name="error_in_creation_link">Error in link creation:</string>
+    <string name="image_saved">Image Saved</string>
+    <string name="copy_to_clipboard">Copy to Clipboard</string>
+    <string name="registration_info">Please complete registration and verify email to create link!</string>
+    <string name="user_not_sign">User not signed in!</string>
+    <string name="copied">Copied</string>
+    <string name="are_you_older">Are you older than 16 years?</string>
+    <string name="verify_your_account">Verify your account!</string>
+    <string name="waiting_for_approval">Waiting for Approval.</string>
+    <string name="lets_reset_password">Let\'s reset your password</string>
+    <string name="or">Or</string>
+    <string name="email_guardian_email">Email/Guardian\'s Email</string>
+    <string name="send_password_reset_link">Send Password Reset Link</string>
+    <string name="forgot_your_username">Forgot your username?</string>
+    <string name="recover_username">Recover Username(s)</string>
+    <string name="retrieving_example">Retrieving example</string>
+    <string name="qr_error">Invalid QR code. Please use PictoBlox QR.</string>
+    <string name="share_link_code">Generate Link &amp; share QR</string>
+    <string name="save_project_device">Save Project to Device</string>
+    <string name="share_file">Share File</string>
+    <string name="about_body1">PictoBlox is a Coding and AI education platform with graphical programming and Python interfaces that provides a fulfilling AI and coding learning experience through its project-based approach. Students can create games and animations, make interactive real-world applications-based AI and IoT projects, program robots, and much more. PictoBlox also helps them develop must-have 21st-century skills such as creativity, logical reasoning, and problem-solving. \nPictoBlox has been developed by STEMpedia, a globally renowned EdTech startup committed to providing a one-stop solution for STEM education to enthusiastic students and educators. STEMpedia strives towards transforming young minds into innovators of tomorrow!</string>
+    <string name="about_us">About us</string>
+    <string name="rate_us">Rate us</string>
+    <string name="share_pictoblox">Share PictoBlox</string>
+    <string name="terms_conditions">Terms and Condition</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="explore_more_about">"Explore more about "</string>
+    <string name="body_2">STEMpedia, PictoBlox, Dabble, and evive are either registered trademarks or trademarks of Agilo Research Pvt. Ltd. in India and/or other countries.</string>
+    <string name="pictoblox_version">"PictoBlox version: "</string>
+    <string name="following_repositories">Following repositories were primarily used to build PictoBlox, which can be found</string>
+    <string name="body_3">Privacy Policy of PictoBlox and STEMpedia are located</string>
+    <string name="body_4">"If you have any queries regarding this policy, or any other matter, you can contact us "</string>
+    <string name="copyright">Copyright © 2019-2023, Agilo Research Pvt. Ltd. All rights reserved.</string>
+    <string name="body_5">Scratch is developed and maintained by the Scratch Team at the Lifelong Kindergarten group at MIT Media Lab. This application is not associated with or endorsed by the Scratch Team, Scratch Project, the Lifelong Kindergarten group or MIT Media Lab. \nThe Scratch name, Scratch Logo, and Scratch Cat are trademarks owned by the Scratch Team. The MIT name and logo are trademarks owned by the Massachusetts Institute of Technology.</string>
+    <string name="body_l1">scratch-gui is released under BSD 3-Clause and copyright © 2016 of Massachusetts Institute of Technology</string>
+    <string name="body_l2">scratch-vm is released under BSD 3-Clause and copyright © 2016 of Massachusetts Institute of Technology</string>
+    <string name="body_l3">scratch-blocks is released under Apache License 2.0</string>
+    <string name="body_l4">Music, Pen, and Video sensing extensions are developed by the Scratch Team.</string>
+    <string name="body_l6">Translate extension is developed by the Scratch Team with collaboration of Google.</string>
+    <string name="body_l5">Text to Speech extension is developed by the Scratch Team with collaboration of Amazon Web Services.</string>
+    <string name="body_l7">Makey Makey extension is developed by the Scratch Team with collaboration of JoyLabz.</string>
+    <string name="body_l8">Micro:bit extension is developed by the Scratch Team with collaboration of micro:bit.</string>
+    <string name="body_l9">LEGO MINDSTORMS EV3, and LEGO WeDo 2.0 extension is developed by the Scratch Team with collaboration of LEGO.</string>
+    <string name="body_l10">Go Direct Force and Acceleration extension is developed by the Scratch Team in collaboration with Vernier.</string>
+    <string name="terms_body">The software is provided “as-is” and without warranty of any kind, express, implied or otherwise, including without limitation, any warranty of merchantability or fitness for a particular purpose. In no event shall the copyright holder or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.</string>
+    <string name="privacy_body">We may update our Terms and Privacy Policy from time to time and you are advised to check this page from time to time for any changes. Any changes are effective immediately.</string>
+    <string name="extension_credits">Extensions Credits:</string>
+    <string name="love_india">With ♥ from India!</string>
+    <string name="here">here</string>
+    <string name="release_notes">Release notes</string>
+    <string name="continue_">Continue</string>
+    <string name="delete_dialog_title">Are you sure you want to Delete your account?</string>
+    <string name="delete_dialog_body">When you delete your account, your profile, your course progress and your files on cloud will be deleted.</string>
+    <string name="sign_out_dialog_title">Are you sure you want to sign out?</string>
+    <string name="sign_out_message">Successfully signed out</string>
+    <string name="error_fetching_message">Error in fetching user detail, please try later</string>
+    <string name="something_wrong_message">Something went wrong, Please check connectivity</string>
+    <string name="connectivity_message">Please check connectivity</string>
+    <string name="dont_have_account">If you don’t have an account,\ncreate it from the home screen.</string>
+    <string name="no_saved_file">You have not saved any files yet!</string>
+    <string name="no_internet">No internet</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="to_many_itemselected">Too many items selected</string>
+    <string name="project_saved_downloads">Projects saved in Downloads</string>
+    <string name="project_save">Project saved</string>
+    <string name="project_cached">Project cached</string>
+    <string name="fail_to_cache_file">Failed to cache work</string>
+    <string name="fail_to_save_file">Failed to save file</string>
+    <string name="error_in_caching">Error in caching project:</string>
+    <string name="error_in_saving">Error in saving project:</string>
+    <string name="deleting_files">Deleting files</string>
+    <string name="deleting_desc">Are you sure you want to delete %1$d file(s)?</string>
+    <string name="downloading_res">Downloading resources</string>
+    <string name="need_camera_permission">Need Camera Permission for accessing USB camera</string>
+    <string name="camera_connected">Camera Connected</string>
+    <string name="camera_disconnected">Camera Disconnected</string>
+</resources>

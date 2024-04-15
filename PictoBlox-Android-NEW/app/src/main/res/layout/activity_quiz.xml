@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.quiz.QuizActivityVM" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".quiz.QuizActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_quiz"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Test yourself"
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_solution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:background="@drawable/ripple_toolbar_item"
+                android:onClick="@{()-> data.onShowSolutionClicked()}"
+                android:padding="8dp"
+                android:src="@drawable/ic_quiz_hint_bulb"
+                android:tint="@{data.showSolution?@color/quiz_yellow:@android:color/white}"
+                android:visibility="@{data.showSolutionIcon? View.VISIBLE:View.GONE}"
+                tools:visibility="visible" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2_quiz_questions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_quiz"
+            tools:visibility="visible">
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:maxLines="3"
+            android:text="@{data.solutionText}"
+            android:textColor="@android:color/black"
+            android:visibility="@{data.showSolution?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_quiz" />
+
+        <ImageView
+            android:id="@+id/imageView26"
+            localImagePath="@{data.solutionImage}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            android:visibility="@{data.showSolution?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView36"
+            app:srcCompat="@drawable/ic_lesson_item_box" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="io.stempedia.pictoblox.firebase.login.LoginWithEmailPasswordVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@drawable/bg_login_m2">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@{data.contentBackground}"
+            android:elevation="4dp"
+            android:onClick="@{()-> data.doNothingOnClick()}"
+            android:padding="@dimen/login_box_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/round_login_background"
+            tools:visibility="visible">
+
+
+            <EditText
+                android:id="@+id/editText5"
+                style="@style/style_et_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/login_internal_margin_2"
+                android:layout_marginEnd="8dp"
+                android:hint="@string/username"
+                android:imeOptions="flagNoExtractUi|actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:text="@={data.username}"
+                app:layout_constraintBottom_toTopOf="@+id/editText6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+            <EditText
+                android:id="@+id/editText6"
+                style="@style/style_et_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/login_internal_margin_1"
+                android:hint="@string/password"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:text="@={data.password}"
+                app:layout_constraintBottom_toTopOf="@+id/button11"
+                app:layout_constraintEnd_toEndOf="@+id/editText5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/editText5"
+                app:layout_constraintTop_toBottomOf="@+id/editText5" />
+
+
+            <ProgressBar
+                android:id="@+id/progressBar7"
+                style="@android:style/Widget.DeviceDefault.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{data.isLoggingIn ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/button11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/button11"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/button11"
+                style="@style/style_tv_login_buttons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="@dimen/login_internal_margin_1"
+                android:onClick="@{()->data.signInClicked()}"
+                android:text="@string/sign_in"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/textView49"
+                app:layout_constraintEnd_toEndOf="@+id/editText6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/editText6"
+                app:layout_constraintTop_toBottomOf="@+id/editText6" />
+
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Hi,"
+                android:textSize="36sp"
+                android:visibility="@{data.isLoggingSuccess ? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{data.username}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="36sp"
+                android:visibility="@{data.isLoggingSuccess ? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/textView50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView50"
+                app:layout_constraintTop_toTopOf="@+id/textView50"
+                tools:text="Username"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textView61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{data.isSignInExternalFlow? @string/sign_in_req : @string/sign_in}"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="5dp"
+                android:textSize="@dimen/login_text_size"
+                app:layout_constraintBottom_toBottomOf="@+id/textView62"
+                app:layout_constraintEnd_toStartOf="@+id/textView62"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/sign_in_req" />
+
+            <TextView
+                android:id="@+id/textView62"
+                style="@style/style_tv_login_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:ems="6"
+                android:onClick="@{()-> data.signUpClicked()}"
+                android:text="@string/register"
+                android:visibility="@{!data.isSignInExternalFlow &amp;&amp; !data.isLoggingSuccess  ? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/editText5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView61"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{()-> data.forgotPasswordClicked()}"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="@string/forgot_password"
+                android:textSize="12sp"
+                android:visibility="@{!data.isSignInExternalFlow &amp;&amp; !data.isLoggingSuccess  ? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/textView52"
+                app:layout_constraintEnd_toEndOf="@+id/button11"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/button11"
+                app:layout_constraintTop_toBottomOf="@+id/button11"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()-> data.forgotUsernameClicked()}"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="@string/forgot_username"
+                android:textSize="12sp"
+                android:visibility="@{!data.isSignInExternalFlow &amp;&amp; !data.isLoggingSuccess  ? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView49"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/textView49"
+                app:layout_constraintTop_toBottomOf="@+id/textView49"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imageView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:padding="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/editText6"
+                app:layout_constraintEnd_toEndOf="@+id/editText6"
+                app:layout_constraintTop_toTopOf="@+id/editText6"
+                app:srcCompat="@drawable/ic_view_pwd" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{data.isLoggingSuccess ? View.GONE:View.VISIBLE}"
+                app:constraint_referenced_ids="editText5,textView61,imageView33,editText6,button11"
+                tools:layout_editor_absoluteX="14dp"
+                tools:layout_editor_absoluteY="14dp"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView92"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/dont_have_account"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:visibility="@{data.isSignInExternalFlow &amp;&amp; !data.isLoggingSuccess  ? View.VISIBLE:View.GONE}"
+                app:layout_constraintEnd_toEndOf="@+id/button11"
+                app:layout_constraintStart_toStartOf="@+id/button11"
+                app:layout_constraintTop_toTopOf="@+id/textView49"
+                tools:visibility="gone" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

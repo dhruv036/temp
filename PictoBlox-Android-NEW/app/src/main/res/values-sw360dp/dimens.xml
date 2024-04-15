@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_card_width">200dp</dimen>
+    <dimen name="home_card_height">164dp</dimen>
+    <dimen name="help_card_image_width">190dp</dimen>
+    <dimen name="login_text_size">14sp</dimen>
+    <dimen name="login_et_text_size">13sp</dimen>
+    <dimen name="login_sub_title_text_size">20sp</dimen>
+    <dimen name="login_box_padding">12dp</dimen>
+    <dimen name="login_internal_margin_2">20dp</dimen>
+    <dimen name="login_internal_margin_1">12dp</dimen>
+    <dimen name="course_list_alvin_padding">30dp</dimen>
+    <dimen name="course_item_width">165dp</dimen>
+    <dimen name="course_item_height">195dp</dimen>
+
+    <dimen name="lesson_list_title_text_size">15sp</dimen>
+
+    <dimen name="lesson_list_row_item_bg_size">44dp</dimen>
+    <dimen name="lesson_list_row_item_index_size">28dp</dimen>
+
+    <dimen name="lesson_list_row_item_tick_size">23dp</dimen>
+    <dimen name="lesson_list_action_buttons_size">27dp</dimen>
+
+    <dimen name="lesson_list_start_padding_start">18dp</dimen>
+    <dimen name="lesson_list_start_padding_end">14dp</dimen>
+    <dimen name="xxdp_16dp_padding">10dp</dimen>
+    <dimen name="lesson_list_star_size">18dp</dimen>
+
+    <dimen name="profile_options_icon_size">20dp</dimen>
+    <dimen name="profile_options_text_size">14sp</dimen>
+    <dimen name="profile_option_side_margin">28dp</dimen>
+    <dimen name="profile_option_up_margin">6dp</dimen>
+    <dimen name="profile_user_detail_font_size">14sp</dimen>
+    <dimen name="profile_image_size">72dp</dimen>
+</resources>

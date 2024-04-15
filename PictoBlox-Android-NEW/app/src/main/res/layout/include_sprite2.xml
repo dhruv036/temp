@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:background="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_sprite_thumb"
+                android:layout_width="wrap_content"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:background="@android:color/white"
+                tools:src="@drawable/ic_dummy_bar_24px"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/v_sprit_left"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        <View
+                android:layout_width="6dp"
+                android:layout_height="0dp"
+                android:id="@+id/v_sprit_left"
+                tools:background="@drawable/round_sprite_v_left"
+                app:layout_constraintTop_toTopOf="@+id/iv_sprite_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_sprite_thumb"
+                app:layout_constraintStart_toStartOf="parent"/>
+        <View
+                android:layout_width="6dp"
+                android:layout_height="0dp"
+                android:id="@+id/v_sprit_right"
+                android:background="@drawable/round_sprite_v_right"
+                app:layout_constraintTop_toTopOf="@+id/iv_sprite_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_sprite_thumb"
+                app:layout_constraintStart_toEndOf="@+id/iv_sprite_thumb"/>
+        <View
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:id="@+id/v_sprit_top"
+                android:background="@drawable/round_sprite_v_top"
+                app:layout_constraintStart_toEndOf="@+id/v_sprit_left"
+                app:layout_constraintEnd_toStartOf="@+id/v_sprit_right"
+                app:layout_constraintBottom_toTopOf="@+id/iv_sprite_thumb"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

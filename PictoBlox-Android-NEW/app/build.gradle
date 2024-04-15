@@ -1,0 +1,226 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+
+android {
+    namespace 'io.stempedia.pictoblox'
+    compileSdk 33
+    buildToolsVersion = '33.0.1'
+    defaultConfig {
+        applicationId "io.stempedia.pictoblox"
+        minSdkVersion 23
+        targetSdkVersion 33
+        versionCode 109
+        versionName "3.1.3"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resourceConfigurations += ["en", "zh-rTW", "zh-rCN", "ru", "ko", "hi", "de","it"]
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'pictobloxappkey'
+            keyPassword 'arRND@2023'
+            storeFile file("/Users/dhruv/Documents/pictobloxappkey")
+            storePassword 'arRND@2023'
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug{
+            buildConfigField "boolean", "ENABLE_CRASHLYTICS", "false"
+        }
+
+    }
+
+    flavorDimensions "functionalities"
+
+    productFlavors {
+        alpha {
+            buildConfigField "String", "SERVER", '"alpha"'
+            buildConfigField "String", "NOTIFICATION_TOPIC", '"promotion_alpha"'
+            applicationIdSuffix ""
+            versionNameSuffix "-LOCAL"
+            buildConfigField "String", "BUILD_DATE", '"' + getDate() + '"'
+            buildConfigField "String", "PICTOBLOX_BUILD_VERSION", '"m.4.0.0"'
+            buildConfigField "boolean", "ENABLE_CRASHLYTICS", "false"
+        }
+        production {
+            buildConfigField "String", "SERVER", '"prod"'
+            buildConfigField "String", "NOTIFICATION_TOPIC", '"promotion_live"'
+            applicationIdSuffix ""
+            versionNameSuffix ""
+            buildConfigField "String", "BUILD_DATE", '"' + getDate() + '"'
+            buildConfigField "String", "PICTOBLOX_BUILD_VERSION", '"m.4.1.0"'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions{
+        preDexLibraries true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+static def getDate() {
+    return new Date().format('dd MMMM yyyy').toString()
+}
+
+
+dependencies {
+    implementation project(path: ':PhysicaloidLibrary')
+    def lifecycle_version = "2.3.1"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation platform('com.google.firebase:firebase-bom:30.0.0')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-core'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore-ktx:'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    //implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-functions'
+    implementation 'com.firebaseui:firebase-ui-storage:7.1.1'
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0-beta02'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //implementation 'androidx.preference:preference:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    //implementation 'com.caverock:androidsvg-aar:1.4'
+    /*implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.6'*/
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.9'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-core:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-appcompat:3.1.0'
+    implementation 'com.google.android.material:material:1.9.0'
+    /*implementation 'com.squareup.okhttp3:logging-interceptor:3.14.0'*/
+    /*implementation 'com.github.clans:fab:1.6.4'*/
+
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+
+
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation 'com.hbb20:ccp:2.7.3'
+
+    implementation 'com.github.esafirm.android-image-picker:imagepicker:2.2.0'
+    implementation 'com.github.yalantis:ucrop:2.2.4-native'
+
+
+    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    //implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    //implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.activity:activity-ktx:1.2.3"
+    implementation 'androidx.fragment:fragment-ktx:1.3.5'
+
+
+
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    implementation 'com.github.zhpanvip:viewpagerindicator:1.0.4'
+
+//    implementation 'com.google.android.play:core:1.10.3'
+//    implementation 'com.google.android.play:core-ktx:1.8.1'
+
+    implementation 'com.google.android.play:review:2.0.1'
+    implementation 'com.google.android.play:review-ktx:2.0.1'
+
+
+    implementation 'androidx.webkit:webkit:1.7.0'
+
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-service:2.3.1"
+
+    def room_version = "2.4.0-alpha03"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-rxjava3:$room_version"
+
+    def work_version = "2.6.0-beta01"
+
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+    implementation "androidx.work:work-rxjava3:$work_version"
+
+    implementation 'com.trello.rxlifecycle4:rxlifecycle-android-lifecycle-kotlin:4.0.2'
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+
+
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+    implementation 'com.fasterxml.uuid:java-uuid-generator:4.0.1'
+    // For scan QR
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    // For animation
+    implementation 'com.airbnb.android:lottie:6.0.0'
+    // for QR code generation
+    implementation 'com.github.alexzhirkevich:custom-qr-generator:1.6.2'
+
+    implementation 'com.github.acsbendi:Android-Request-Inspector-WebView:1.0.3'
+    implementation "com.jakewharton:process-phoenix:2.0.0"
+
+    // QR-SCAN
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
+    // USB-CAMERA
+    implementation 'com.github.jiangdongguo.AndroidUSBCamera:libausbc:3.3.3'
+
+    // IN-APP UPDATE
+    implementation 'com.google.android.play:app-update:2.1.0'
+    implementation 'com.google.android.play:app-update-ktx:2.1.0'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+
+}

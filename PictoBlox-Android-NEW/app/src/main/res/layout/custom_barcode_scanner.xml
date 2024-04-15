@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.journeyapps.barcodescanner.BarcodeView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/zxing_barcode_surface"
+        app:zxing_framing_rect_width="250dp"
+        app:zxing_framing_rect_height="250dp"/>
+
+    <com.journeyapps.barcodescanner.ViewfinderView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="40dp"
+        android:id="@+id/zxing_viewfinder_view"
+        />
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/round_flip_camera_ios_24"
+            />
+
+        <TextView
+            android:id="@+id/zxing_status_view"
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_weight="1"
+
+            android:textAlignment="center"
+            android:background="@color/zxing_transparent"
+            android:text="Invalid QR Code. Please use PictoBlox QR."
+            android:textColor="@color/zxing_status_text"/>
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/outline_image_24"
+            />
+
+
+
+
+    </LinearLayout>
+
+</merge>
